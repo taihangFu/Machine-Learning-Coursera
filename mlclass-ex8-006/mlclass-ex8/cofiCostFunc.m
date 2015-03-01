@@ -42,13 +42,31 @@ Theta_grad = zeros(size(Theta));
 
 
 
+%Y
+%R
+
+ J = (1/2) *  sum(sum ((((X * Theta') .* R) - (Y.*R)).^2) ) ;
 
 
 
+ %cost with regularization
+ %J = J + (lambda/2) * sum(sum((Theta).^2));
+ 
+ %all Users who has rated
+ %idx = find(R(i, :)==1);
 
+ %Theat_temp = Theat(idx, :);
 
+ %Y_temp = Y(:, idx);
 
+%for i = 1:num_movies,
+% 	X_grad(i, :) = (X(i,:) * Theat_temp' - Y_temp) * Theat_temp;
+% endfor
 
+ %num_movies x num_features
+ X_grad = ( ((X * Theta').*R)  - (Y.*R) ) * Theta;
+
+ Theta_grad = ( ((X * Theta').*R) - (Y.*R) )' * X;
 
 
 

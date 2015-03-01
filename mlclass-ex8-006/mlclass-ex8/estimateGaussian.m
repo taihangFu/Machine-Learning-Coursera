@@ -21,13 +21,13 @@ sigma2 = zeros(n, 1);
 %               should contain variance of the i-th feature.
 %
 
+mu = mean(X);
+%need n x 1 vector
+mu = mu';
 
-
-
-
-
-
-
+sigma2 = var(X, 1);
+%need n x 1 vector
+sigma2 = sigma2';
 
 
 % =============================================================
